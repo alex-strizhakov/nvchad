@@ -14,6 +14,15 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.golangci_lint_ls.setup {
+  init_options = {
+    command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
+  },
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+}
+
 lspconfig.lexical.setup {
   filetypes = { "elixir", "eelixir", "heex", "eex" },
   cmd = { "/Users/alex/Programming/elixir/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
