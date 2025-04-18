@@ -1,4 +1,5 @@
 require "nvchad.mappings"
+local gitsigns = require "gitsigns"
 
 -- add yours here
 
@@ -21,6 +22,12 @@ map("n", "<leader>ie", ":e .iex.exs<CR>", { desc = "Edit iex file" })
 
 map("n", "<leader>U", "viwU", { desc = "Upcase word" })
 map("n", "<leader>L", "viwu", { desc = "Downcase word" })
+
+-- Gitsigns
+map("n", "<leader>hb", function()
+  gitsigns.blame_line { full = true }
+end)
+map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
 
 local nomap = vim.keymap.del
 nomap("n", "<leader>h")
