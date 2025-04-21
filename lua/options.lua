@@ -34,3 +34,5 @@ vim.api.nvim_create_autocmd("BufDelete", {
     end
   end,
 })
+
+vim.opt.laststatus = 3
